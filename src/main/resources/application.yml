@@ -1,0 +1,15 @@
+server:
+  port: 8081
+spring:
+  #通用的数据源配置
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/advancedSoft?useSSL=false&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 200009120015
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: none
