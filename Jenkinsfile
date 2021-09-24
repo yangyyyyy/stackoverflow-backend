@@ -18,8 +18,8 @@ pipeline {
 
         stage('Deliver'){
             steps{
-                sh 'sudo cp target/example.war /usr/local/tomcat9/webapps'
-                sh 'sudo /usr/local/tomcat9/bin/startup.sh'
+                sh 'sudo cp target/example.war /usr/local/apache-tomcat-8.5.64/webapps'
+                sh 'sudo /usr/local/apache-tomcat-8.5.64/bin/startup.sh'
             }
         }
     }
