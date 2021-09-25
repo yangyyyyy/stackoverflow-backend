@@ -12,9 +12,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/chart")
 public class ChartController {
-    @GetMapping("/hello/")
-    public ResponseVO findChart(@PathVariable int id){
-
+    @GetMapping("/hello")
+    public ResponseVO findChart(){
         return ResponseVO.buildSuccess("hello");
     }
 
