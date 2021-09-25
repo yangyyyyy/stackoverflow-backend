@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/api/chart")
 public class ChartController {
     @GetMapping("/hello/")
-    public ResponseVO findChart(@PathVariable int id){
+    public ResponseVO findChart(){
 
         return ResponseVO.buildSuccess("hello");
     }
