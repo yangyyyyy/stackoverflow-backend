@@ -8,12 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
-
 @RestController
 @RequestMapping("/api/chart")
 public class ChartController {
     @GetMapping("/hello")
-    public ResponseVO findChart(){
+    public ResponseVO hello(){
         return ResponseVO.buildSuccess("hello");
     }
 
