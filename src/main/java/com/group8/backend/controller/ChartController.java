@@ -11,9 +11,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/chart")
 public class ChartController {
+
+    // This is ia test api for remote deploy
     @GetMapping("/hello")
     public ResponseVO hello(){
         return ResponseVO.buildSuccess("hello");
     }
+
+
 
 }
