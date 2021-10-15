@@ -44,10 +44,10 @@ DROP TABLE IF EXISTS `t_node`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `t_node` (
                           `id` int(11) NOT NULL AUTO_INCREMENT,
-                          `node_id` varchar(255) DEFAULT NULL,
+                          `node_name` varchar(255) NOT NULL UNIQUE,
                           `chart_id` int(11) DEFAULT NULL,
                           `node_group` varchar(255) NOT NULL,
-                          `node_name` varchar(255) NOT NULL,
+                          `node_content` varchar(255) NOT NULL,
                           `classes` varchar(255) DEFAULT NULL,
                           `position_x` int(11) DEFAULT NULL,
                           `position_y` int(11) DEFAULT NULL,
@@ -60,10 +60,10 @@ DROP TABLE IF EXISTS `t_edge`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `t_edge` (
                           `id` int(11) NOT NULL AUTO_INCREMENT,
-                          `edge_id` varchar(255) DEFAULT NULL,
+                          `edge_name` varchar(255) NOT NULL UNIQUE,
                           `chart_id` int(11) DEFAULT NULL,
                           `edge_group` varchar(255) NOT NULL,
-                          `edge_name` varchar(255) NOT NULL,
+                          `edge_content` varchar(255) NOT NULL,
                           `classes` varchar(255) DEFAULT NULL,
                           `source` varchar(255) DEFAULT NULL,
                           `target` varchar(255) DEFAULT NULL,
