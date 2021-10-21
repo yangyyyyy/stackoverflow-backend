@@ -12,15 +12,15 @@ public class NodeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name="node_name",length = 20,unique = true)
+    @Column(name="node_name",unique = true)
     private String node_name;
     @Column(name="chart_id")
     private Integer chart_id;
-    @Column(name="node_group",length = 20)
+    @Column(name="node_group")
     private String node_group;
-    @Column(name="node_content",length = 20)
+    @Column(name="node_content")
     private String node_content;
-    @Column(name="classes",length = 20)
+    @Column(name="classes")
     private String classes;
     @Column(name="position_x")
     private Integer position_x;

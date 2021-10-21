@@ -27,12 +27,12 @@ public class NodeController {
     }
 
     @GetMapping("/delete/{chart_id}/{node_name}")
-    public ResponseVO deleteEdge(@PathVariable int chart_id, @PathVariable String node_name){
+    public ResponseVO deleteNode(@PathVariable int chart_id, @PathVariable String node_name){
         return nodeService.deleteNode(node_name,chart_id);
     }
 
     @GetMapping("/get/{chart_id}/{node_name}")
-    public ResponseVO findEdge(@PathVariable int chart_id,@PathVariable String node_name){
+    public ResponseVO findNode(@PathVariable int chart_id,@PathVariable String node_name){
         NodeVO res=nodeService.getNode(node_name,chart_id);
         if(res==null){
             return ResponseVO.buildFailure("没有这样的节点");

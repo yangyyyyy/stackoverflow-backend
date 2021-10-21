@@ -55,8 +55,7 @@ public class NodeServiceImpl implements NodeService {
         if(chosenNodeList.size()==0){
             return null;
         }
-        NodeVO nodeVO=new NodeVO(chosenNodeList.get(0));
-        return nodeVO;
+        return new NodeVO(chosenNodeList.get(0));
     }
 
 
