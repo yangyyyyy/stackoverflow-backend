@@ -9,7 +9,7 @@ import com.group8.backend.PO.NodeEntity;
  * @Date 2021/10/14/20:23
  **/
 
-public class NodeVO {
+public class NodeVO extends EntityVO{
     public class Data{
         public String name;
         public String content;

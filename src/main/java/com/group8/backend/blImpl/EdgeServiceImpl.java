@@ -8,6 +8,7 @@ import com.group8.backend.bl.EdgeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -54,5 +55,18 @@ public class EdgeServiceImpl implements EdgeService {
             return null;
         }
         return new EdgeVO(chosenEdgeList.get(0));
+    }
+
+    @Override
+    public List<EdgeVO> findEdgeByChart_id(int chart_id) {
+        List<EdgeEntity> chosenEdgeList=edgeRepository.findByChart_id(chart_id);
+        if(chosenEdgeList.size()==0){
+            return null;
+        }
+        List<EdgeVO> returnEdgeVO=new ArrayList<EdgeVO>();
+        for(EdgeEntity edgeEntity:chosenEdgeList){
+            returnEdgeVO.add(new EdgeVO(edgeEntity));
+        }
+        return returnEdgeVO;
     }
 }
