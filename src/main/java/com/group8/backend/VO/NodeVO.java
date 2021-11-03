@@ -1,6 +1,7 @@
 package com.group8.backend.VO;
 
 import com.group8.backend.PO.NodeEntity;
+import lombok.NoArgsConstructor;
 
 /**
  * @ClassName NodeVO
@@ -8,7 +9,7 @@ import com.group8.backend.PO.NodeEntity;
  * @Author 李俊杰
  * @Date 2021/10/14/20:23
  **/
-
+@NoArgsConstructor
 public class NodeVO {
     public class Data{
         public String name;

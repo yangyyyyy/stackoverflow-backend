@@ -18,6 +18,4 @@ public class ChartController {
         return ResponseVO.buildSuccess("hello");
     }
 
-
-
 }
