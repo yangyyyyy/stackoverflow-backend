@@ -33,7 +33,7 @@ public class EdgeController {
     public ResponseVO findedge(@PathVariable int chart_id,@PathVariable String edge_name){
         EdgeVO res=edgeService.getedge(edge_name,chart_id);
         if(res==null){
-            return ResponseVO.buildFailure("没有这样的节点");
+            return ResponseVO.buildFailure("没有这样的关系");
         }
         return ResponseVO.buildSuccess(res);
     }

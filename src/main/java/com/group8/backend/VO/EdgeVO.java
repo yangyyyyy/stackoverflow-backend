@@ -2,7 +2,7 @@ package com.group8.backend.VO;
 
 import com.group8.backend.PO.EdgeEntity;
 
-public class EdgeVO {
+public class EdgeVO extends EntityVO{
     private int id;
     private String name;
     private String content;

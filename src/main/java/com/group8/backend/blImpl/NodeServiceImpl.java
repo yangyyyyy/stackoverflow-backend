@@ -58,5 +58,18 @@ public class NodeServiceImpl implements NodeService {
         return new NodeVO(chosenNodeList.get(0));
     }
 
+    @Override
+    public List<NodeVO> findNodeByChart_id(int chart_id) {
+        List<NodeEntity> chosenNodeList=nodeRepository.findByChart_id(chart_id);
+        if(chosenNodeList.size()==0){
+            return null;
+        }
+        List<NodeVO> returnNodeVO=new ArrayList<NodeVO>();
+        for(NodeEntity nodeEntity:chosenNodeList){
+            returnNodeVO.add(new NodeVO(nodeEntity));
+        }
+        return returnNodeVO;
+    }
+
 
 }
