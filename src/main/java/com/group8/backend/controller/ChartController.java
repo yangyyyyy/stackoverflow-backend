@@ -43,4 +43,9 @@ public class ChartController {
         return ResponseVO.buildSuccess(res);
     }
 
+    //query
+    @GetMapping("/query/{content}")
+    public ResponseVO query(@PathVariable int id){
+        return ResponseVO.buildSuccess();
+    }
 }
