@@ -170,7 +170,7 @@ def search(input):
                     return
             questions = questions[nums:]
             #pprint(edges)
-            yield json.dumps({"nodes": nodes, "edges": edges})
+            yield json.dumps({"nodes": all_nodes, "edges": all_edges})
             nodes.clear()
             edges.clear()
 
