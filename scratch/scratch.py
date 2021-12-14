@@ -166,11 +166,11 @@ def search(input):
                 if count >= 30:
                     pprint("exit")
                     #pprint(all_edges)
-                    yield json.dumps({"nodes": all_nodes, "edges": all_edges})
+                    yield json.dumps({"nodes": all_nodes, "edges": all_edges, "end": True})
                     return
             questions = questions[nums:]
             #pprint(edges)
-            yield json.dumps({"nodes": all_nodes, "edges": all_edges})
+            yield json.dumps({"nodes": all_nodes, "edges": all_edges, "end": False})
             nodes.clear()
             edges.clear()
 
