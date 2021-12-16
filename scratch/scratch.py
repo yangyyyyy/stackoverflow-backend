@@ -68,12 +68,13 @@ def test():
 @cross_origin(supports_credentials=True)
 def search(input):
     intitle = input
-    count = 1
     req = requests.get(
         'https://api.stackexchange.com/2.3/search?order=desc&sort=activity&intitle=' + intitle + '&site=stackoverflow',
         header)
     req = req.json()
     nodes = list(req['items'])
+    for i in range(len(nodes)):
+        nodes[i]["question_id"] = "q_"+str(nodes[i]["question_id"])
     return json.dumps({"results": nodes})
 
 @app.route('/pyapi/chart/scratch/<question_id>')
