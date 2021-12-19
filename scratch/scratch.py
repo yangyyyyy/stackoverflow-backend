@@ -4,7 +4,7 @@ import time
 import requests
 
 ssl._create_default_https_context = ssl._create_unverified_context
-access_token = 'Lxpx3qJkurw1xRzmSRabOA))'
+access_token = 'vo9jCrrQZX4H9K4id9PWtA))'
 header = {'Authorization': access_token}
 
 
@@ -33,7 +33,7 @@ def get_links(question_id):
 
 
 import json
-
+from bs4 import BeautifulSoup
 from flask import Flask, Response, stream_with_context
 from flask_cors import cross_origin
 
@@ -50,19 +50,27 @@ def index():
     return json.dumps(result)
 
 
-@app.route('/pyapi/chart/test')
+@app.route('/pyapi/chart/qcontent/<id>')
 @cross_origin(supports_credentials=True)
-def test():
-    def generate():
-        time.sleep(3)
-        yield "1"
-        time.sleep(10)
-        yield json.dumps({"node": [1, 2, 3, 4]})
-        time.sleep(10)
-        yield "3"
+def qcontent(id):
+    url = "https://stackoverflow.com/q/"+id
+    content=requests.get(url).content
+    soup = BeautifulSoup(content)
+    soup = soup.find('div',"question")
+    content = soup.find('div','s-prose js-post-body')
+    #print(content)
+    return str(content)
 
-    return Response(stream_with_context(generate()))
-
+@app.route('/pyapi/chart/content/<id>')
+@cross_origin(supports_credentials=True)
+def content(id):
+    url = "https://stackoverflow.com/a/"+id
+    content=requests.get(url).content
+    soup = BeautifulSoup(content)
+    soup = soup.find(id='answer-'+str(id))
+    content = soup.find('div','s-prose js-post-body')
+    #print(content)
+    return str(content)
 
 @app.route('/pyapi/chart/search/<input>')
 @cross_origin(supports_credentials=True)
