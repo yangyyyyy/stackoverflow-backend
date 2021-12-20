@@ -50,6 +50,18 @@ def index():
     return json.dumps(result)
 
 
+@app.route('/pyapi/chart/faq/<tag>')
+@cross_origin(supports_credentials=True)
+def faq(tag):
+    req = requests.get(
+        'https://api.stackexchange.com/2.3/tags/'+tag+'/faq?site=stackoverflow',
+        header)
+    req = req.json()
+    questions = list(req['items'])
+    for i in range(len(questions)):
+        questions[i]["question_id"] = "q_" + str(questions[i]["question_id"])
+    return json.dumps({"results": questions})
+
 @app.route('/pyapi/chart/qcontent/<id>')
 @cross_origin(supports_credentials=True)
 def qcontent(id):
