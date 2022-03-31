@@ -8,5 +8,5 @@ Run pip install -U bs4
 copy scratch/scratch.py /app
 
 WORKDIR /app
-EXPOSE 5000
+
 CMD python scratch.py
