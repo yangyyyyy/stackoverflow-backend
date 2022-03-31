@@ -1,5 +1,6 @@
 FROM python:3.6.4
 
+RUN sudo apt-get upgrade
 RUN mkdir /app
 RUN pip install -U requests
 RUN pip install -U flask_cors
