@@ -1,6 +1,5 @@
 FROM python:3.6.4
 
-RUN apt-get upgrade
 RUN mkdir /app
 RUN pip install -U requests
 RUN pip install -U flask_cors
@@ -9,5 +8,5 @@ Run pip install -U bs4
 copy scratch/scratch.py /app
 
 WORKDIR /app
-
+EXPOSE 5000
 CMD python scratch.py
