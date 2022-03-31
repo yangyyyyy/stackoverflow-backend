@@ -11,7 +11,7 @@ header = {'Authorization': access_token}
 def get_answers(question_id):
     t_request = requests.get(
         'https://api.stackexchange.com/2.3/questions/' + question_id + '/answers?pagesize=100&order=desc&sort=activity&site=stackoverflow',
-        header)
+        header,verify=False)
     t_answers = t_request.json()['items']
     return t_answers
 
@@ -19,7 +19,7 @@ def get_answers(question_id):
 def get_related(question_id):
     request = requests.get(
         'https://api.stackexchange.com/2.3/questions/' + question_id + '/related?pagesize=100&order=desc&sort=activity&site=stackoverflow',
-        header)
+        header,verify=False)
     relate = request.json()['items']
     return relate
 
@@ -27,7 +27,7 @@ def get_related(question_id):
 def get_links(question_id):
     request = requests.get(
         'https://api.stackexchange.com/2.3/questions/' + question_id + '/linked?pagesize=100&order=desc&sort=activity&site=stackoverflow',
-        header)
+        header,verify=False)
     linked = request.json()['items']
     return linked
 
@@ -55,7 +55,7 @@ def index():
 def faq(tag):
     req = requests.get(
         'https://api.stackexchange.com/2.3/tags/'+tag+'/faq?site=stackoverflow',
-        header)
+        header,verify=False)
     req = req.json()
     questions = list(req['items'])
     for i in range(len(questions)):
@@ -66,7 +66,7 @@ def faq(tag):
 @cross_origin(supports_credentials=True)
 def qcontent(id):
     url = "https://stackoverflow.com/q/"+id
-    content=requests.get(url).content
+    content=requests.get(url,verify=False).content
     soup = BeautifulSoup(content)
     soup = soup.find('div',"question")
     content = soup.find('div','s-prose js-post-body')
@@ -77,7 +77,7 @@ def qcontent(id):
 @cross_origin(supports_credentials=True)
 def content(id):
     url = "https://stackoverflow.com/a/"+id
-    content=requests.get(url).content
+    content=requests.get(url,verify=False).content
     soup = BeautifulSoup(content)
     soup = soup.find(id='answer-'+str(id))
     content = soup.find('div','s-prose js-post-body')
@@ -90,7 +90,7 @@ def search(input):
     intitle = input
     req = requests.get(
         'https://api.stackexchange.com/2.3/search?order=desc&sort=activity&intitle=' + intitle + '&site=stackoverflow',
-        header)
+        header,verify=False)
     req = req.json()
     nodes = list(req['items'])
     for i in range(len(nodes)):
