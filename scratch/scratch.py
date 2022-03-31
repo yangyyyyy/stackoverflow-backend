@@ -4,7 +4,7 @@ import time
 import requests
 
 ssl._create_default_https_context = ssl._create_unverified_context
-access_token = 'vo9jCrrQZX4H9K4id9PWtA))'
+access_token = 'vo9jCrrQZX4H9K4id9PWtA'
 header = {'Authorization': access_token}
 
 
